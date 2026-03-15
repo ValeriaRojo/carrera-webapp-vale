@@ -2,9 +2,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import {MatButtonModule} from '@angular/material/button';
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
@@ -16,7 +18,9 @@ export const SHARED_IMPORTS = [
     MatDividerModule,
     MatIconModule,
     MatInputModule,
-
+    MatSelectModule,
+    MatCheckboxModule,
+    
     NgxMaskDirective,
     NgxMaskPipe,
 ] as const;
