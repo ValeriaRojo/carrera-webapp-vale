@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SHARED_IMPORTS } from '../../shared/shared.imports';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-screen',
@@ -9,6 +10,7 @@ import { SHARED_IMPORTS } from '../../shared/shared.imports';
   templateUrl: './registro-screen.html',
   styleUrl: './registro-screen.scss',
 })
+
 export class RegistroScreen implements OnInit {
 
   public user!: RegistroUser;
@@ -20,11 +22,27 @@ export class RegistroScreen implements OnInit {
 
   public edades: Array<{ value: number }> = [];
 
-  
-
-  constructor() { }
+  constructor(
+    private readonly router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  public terminosCondiciones(): void {
+    alert('Aquí se mostrarían los términos y condiciones');
+  }
+
+  public goLogin(): void {
+    this.router.navigate(['']); //Ajustar según la app
+  }
+
+  public showPassword(): void{
+    this.hide_1 = !this.hide_1;
+    this.inputType_1 = this.hide_1 ? 'password' : 'text';
+  }
+
+  public registrar(): void {
   }
 
 }
