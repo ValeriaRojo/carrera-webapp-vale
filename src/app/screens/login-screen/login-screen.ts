@@ -3,6 +3,7 @@ import { SHARED_IMPORTS } from '../../shared/shared.imports';
 
 @Component({
   selector: 'app-login-screen',
+  standalone: true,
   imports: [
     ...SHARED_IMPORTS,
   ],
