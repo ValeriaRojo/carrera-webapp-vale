@@ -24,6 +24,10 @@ export class RegistroScreen implements OnInit {
   public hide_1 = true;
   public inputType_1: 'password' | 'text' = 'password';
 
+  // Inicialización de variables (tarea)
+  public hide_2 = true;
+  public inputType_2: 'password' | 'text' = 'password';
+
   /* Edades */
   public edades: Array<{ value: number }> = [];
 
@@ -77,6 +81,12 @@ export class RegistroScreen implements OnInit {
   public showPassword(): void {
     this.hide_1 = !this.hide_1;
     this.inputType_1 = this.hide_1 ? 'password' : 'text';
+  }
+
+  // Método para mostrar/ocultar el campo de confirmación de contraseña (tarea)
+  public showConfirmPassword(): void {
+    this.hide_2 = !this.hide_2;
+    this.inputType_2 = this.hide_2 ? 'password' : 'text';
   }
 
 }

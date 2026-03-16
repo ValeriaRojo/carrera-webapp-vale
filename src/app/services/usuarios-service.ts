@@ -14,6 +14,15 @@ export interface RegistroUser {
   ciudad: string;
   edad: number | null;
   terminos_condiciones: boolean;
+
+  // Agregamos propiedades adicionalesm para el formulario de registro (tarea)
+  confirm_password: string;
+  id_usuario: string;
+  curp: string;
+  rfc: string;
+  grado_estudios: string;
+  direccion: string;
+  estado: string;
 }
 
 export interface PerfilUsuarioUI {
@@ -57,7 +66,16 @@ export class UsuariosService {
       telefono: '',
       ciudad: '',
       edad: null,
-      terminos_condiciones: false
+      terminos_condiciones: false,
+
+      // Inicialización de propiedades adicionales para el formulario de registro (tarea)
+      confirm_password: '',
+      id_usuario: '',
+      curp: '',
+      rfc: '',
+      grado_estudios: '',
+      direccion: '',
+      estado: '',
     };
   }
 
@@ -106,6 +124,40 @@ export class UsuariosService {
     if (!user.terminos_condiciones) {
       errors.terminos_condiciones = 'Debe aceptar los términos y condiciones.';
     }
+
+    // Validaciones adicionales para los nuevos campos del formulario de registro (tarea)
+    if (!user.confirm_password?.trim()) {
+      errors.confirm_password = 'Debe de confirmar su contraseña (obligatorio).';
+    } else if (user.confirm_password !== user.password) {
+      errors.confirm_password = 'Las contraseñas no coinciden.';
+    }
+
+    if (!user.id_usuario?.trim()) {
+      errors.id_usuario = 'El ID de usuario es obligatorio.';
+    } else if (!/^[a-zA-Z0-9]{8}$/.test(user.id_usuario)) {
+      errors.id_usuario = 'El ID de usuario debe tener 8 caracteres (letras o números).';
+    }
+
+    if (!user.curp?.trim()) {
+      errors.curp = 'La CURP es obligatoria.';
+    } else if (!/^[A-Z0-9]{18}$/.test(user.curp)) {
+      errors.curp = 'El formato de la CURP no es válido.';
+    }
+
+    if (!user.rfc?.trim()) {
+      errors.rfc = 'El RFC es obligatorio.';
+    } else if (!/^[A-Z0-9]{12,13}$/.test(user.rfc)) {
+      errors.rfc = 'El formato del RFC no es válido.';
+    }
+
+    if (!user.grado_estudios?.trim()) {
+      errors.grado_estudios = 'Seleccione un grado de estudios.';
+    }
+
+    if (!user.direccion?.trim()) {
+      errors.direccion = 'La dirección es obligatoria.';
+    }
+
     return errors;
   }
 

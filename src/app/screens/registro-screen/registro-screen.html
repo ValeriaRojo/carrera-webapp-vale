@@ -66,7 +66,18 @@
           }
 
           <!-- 1. Confirmación de contraseña (tarea) -->
+           <mat-form-field class="inputs-login" appearance="outline">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input [(ngModel)]="user.confirm_password" [type]="inputType_2" matInput placeholder="Confirma contraseña">
+            <mat-icon matSuffix class="eye-icon" (click)="showConfirmPassword()">
+              {{ hide_2 ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </mat-form-field>
+          @if (errors.confirm_password) {
+          <div class="invalid-feedback">{{ errors.confirm_password }}</div>
+          }
           <!-- 2. ID usuario (tarea)-->
+           
 
           <!-- Teléfono -->
           <mat-form-field class="inputs-login" appearance="outline">
