@@ -85,6 +85,7 @@ export class UsuariosService {
 
   public validarUsuario(user: RegistroUser): RegistroErrors {
     const errors: RegistroErrors = {};
+    const curpRegex = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/;
 
     if (!user.first_name?.trim()) {
       errors.first_name = 'El nombre es obligatorio.';
@@ -140,22 +141,26 @@ export class UsuariosService {
 
     if (!user.curp?.trim()) {
       errors.curp = 'La CURP es obligatoria.';
-    } else if (!/^[A-Z0-9]{18}$/.test(user.curp)) {
+    } else if (!curpRegex.test(user.curp)) {
       errors.curp = 'El formato de la CURP no es válido.';
     }
 
     if (!user.rfc?.trim()) {
       errors.rfc = 'El RFC es obligatorio.';
-    } else if (!/^[A-Z0-9]{12,13}$/.test(user.rfc)) {
+    } else if (!/^[A-Z0-9]{13}$/.test(user.rfc)) {
       errors.rfc = 'El formato del RFC no es válido.';
     }
 
-    if (!user.grado_estudios?.trim()) {
+    if (!user.grado_estudios) {
       errors.grado_estudios = 'Seleccione un grado de estudios.';
     }
 
     if (!user.direccion?.trim()) {
       errors.direccion = 'La dirección es obligatoria.';
+    }
+
+    if (!user.estado) {
+      errors.estado = 'Seleccione un estado.';
     }
 
     return errors;
