@@ -77,7 +77,13 @@
           <div class="invalid-feedback">{{ errors.confirm_password }}</div>
           }
           <!-- 2. ID usuario (tarea)-->
-           
+            <mat-form-field class="inputs-login" appearance="outline">
+              <mat-label>ID Usuario</mat-label>
+              <input [(ngModel)]="user.id_usuario" type="text" matInput placeholder="Ingresa ID usuario">
+            </mat-form-field>
+            @if (errors.id_usuario) {
+            <div class="invalid-feedback">{{ errors.id_usuario }}</div>
+            }
 
           <!-- Teléfono -->
           <mat-form-field class="inputs-login" appearance="outline">
@@ -114,11 +120,47 @@
           }
 
           <!-- 3. CURP (tarea) -->
+            <mat-form-field class="inputs-login" appearance="outline">
+              <mat-label>CURP</mat-label>
+              <input [(ngModel)]="user.curp" type="text" matInput placeholder="Ingresa CURP">
+            </mat-form-field>
+            @if (errors.curp) {
+              <div class="invalid-feedback">{{ errors.curp }}</div>
+            }
           <!-- 4. RFC (tarea) -->
+            <mat-form-field class="inputs-login" appearance="outline">
+              <mat-label>RFC</mat-label>
+              <input [(ngModel)]="user.rfc" type="text" matInput placeholder="Ingresa RFC">
+            </mat-form-field>
+            @if (errors.rfc) {
+              <div class="invalid-feedback">{{ errors.rfc }}</div>
+            }
           <!-- 5. Grado de estudios (tarea) -->
-          <!-- 6. Dirección (tarea) -->
-          <!-- 7. Estado (tarea) -->
+            <mat-form-field appearance="outline" class="inputs-login">
+              <mat-label>Grado de estudios</mat-label>
 
+              <mat-select [(ngModel)]="user.grado_estudios">
+
+                <mat-option value="">Seleccione una opción</mat-option>
+                <mat-option value="Preparatoria">Preparatoria</mat-option>
+                <mat-option value="Licenciatura">Licenciatura</mat-option>
+                <mat-option value="Maestría">Maestría</mat-option>
+                <mat-option value="Doctorado">Doctorado</mat-option>
+
+              </mat-select>
+            </mat-form-field>
+            @if (errors.grado_estudios) {
+              <div class="invalid-feedback">{{ errors.grado_estudios }}</div>
+            }
+          <!-- 6. Dirección (tarea) -->
+            <mat-form-field appearance="outline" class="inputs-login">
+              <mat-label>Dirección</mat-label>
+              <input [(ngModel)]="user.direccion" matInput placeholder="Ingresa tu dirección">
+          </mat-form-field>
+          @if (errors.direccion) {
+              <div class="invalid-feedback">{{ errors.direccion }}</div>
+            }
+          <!-- 7. Estado (tarea) -->
           <!-- Términos -->
           <mat-checkbox class="example-margin" [(ngModel)]="user.terminos_condiciones">
             Acepto los
