@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 
 export class RegistroScreen implements OnInit {
 
-  public user!: RegistroUser;
-  public errors: RegistroErrors = {};
+  public user: any = {};
+  public errors: any = {};
   public isLoading = false;
 
   public hide_1 = true;
@@ -27,6 +27,8 @@ export class RegistroScreen implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Se inia el array de edades para el select del formulario de registro.
+    this.llenarArrayEdades();
   }
 
   private llenarArrayEdades(): void {
