@@ -29,6 +29,10 @@ export class RegistroScreen implements OnInit {
   ngOnInit(): void {
   }
 
+  private llenarArrayEdades(): void {
+    this.edades = Array.from({ length: 63 }, (_, i) => ({ value: i + 18 }));
+  }
+
   public terminosCondiciones(): void {
     alert('Aquí se mostrarían los términos y condiciones');
   }
