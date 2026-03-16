@@ -24,9 +24,45 @@ export class RegistroScreen implements OnInit {
   public hide_1 = true;
   public inputType_1: 'password' | 'text' = 'password';
 
-  // Inicialización de variables (tarea)
+  /* Confirm Password */
   public hide_2 = true;
   public inputType_2: 'password' | 'text' = 'password';
+
+  /* Estados */
+  public estados: Array<{ value: string }> = [
+    { value: 'Aguascalientes' },
+    { value: 'Baja California' },
+    { value: 'Baja California Sur' },
+    { value: 'Campeche' },
+    { value: 'Chiapas' },
+    { value: 'Chihuahua' },
+    { value: 'Ciudad de México' },
+    { value: 'Coahuila' },
+    { value: 'Colima' },
+    { value: 'Durango' },
+    { value: 'Guanajuato' },
+    { value: 'Guerrero' },
+    { value: 'Hidalgo' },
+    { value: 'Jalisco' },
+    { value: 'Estado de México' },
+    { value: 'Michoacán' },
+    { value: 'Morelos' },
+    { value: 'Nayarit' },
+    { value: 'Nuevo León' },
+    { value: 'Oaxaca' },
+    { value: 'Puebla' },
+    { value: 'Querétaro' },
+    { value: 'Quintana Roo' },
+    { value: 'San Luis Potosí' },
+    { value: 'Sinaloa' },
+    { value: 'Sonora' },
+    { value: 'Tabasco' },
+    { value: 'Tamaulipas' },
+    { value: 'Tlaxcala' },
+    { value: 'Veracruz' },
+    { value: 'Yucatán' },
+    { value: 'Zacatecas' }
+  ];
 
   /* Edades */
   public edades: Array<{ value: number }> = [];

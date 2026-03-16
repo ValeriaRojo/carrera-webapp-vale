@@ -66,7 +66,7 @@
           }
 
           <!-- 1. Confirmación de contraseña (tarea) -->
-           <mat-form-field class="inputs-login" appearance="outline">
+          <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>Confirmar Contraseña</mat-label>
             <input [(ngModel)]="user.confirm_password" [type]="inputType_2" matInput placeholder="Confirma contraseña">
             <mat-icon matSuffix class="eye-icon" (click)="showConfirmPassword()">
@@ -74,16 +74,16 @@
             </mat-icon>
           </mat-form-field>
           @if (errors.confirm_password) {
-          <div class="invalid-feedback">{{ errors.confirm_password }}</div>
+            <div class="invalid-feedback">{{ errors.confirm_password }}</div>
           }
           <!-- 2. ID usuario (tarea)-->
-            <mat-form-field class="inputs-login" appearance="outline">
-              <mat-label>ID Usuario</mat-label>
-              <input [(ngModel)]="user.id_usuario" type="text" matInput placeholder="Ingresa ID usuario">
-            </mat-form-field>
-            @if (errors.id_usuario) {
+          <mat-form-field class="inputs-login" appearance="outline">
+            <mat-label>ID Usuario</mat-label>
+            <input [(ngModel)]="user.id_usuario" type="text" matInput placeholder="Ingresa ID usuario">
+          </mat-form-field>
+          @if (errors.id_usuario) {
             <div class="invalid-feedback">{{ errors.id_usuario }}</div>
-            }
+          }
 
           <!-- Teléfono -->
           <mat-form-field class="inputs-login" appearance="outline">
@@ -92,7 +92,7 @@
               placeholder="Ingresa teléfono">
           </mat-form-field>
           @if (errors.telefono) {
-          <div class="invalid-feedback">{{ errors.telefono }}</div>
+            <div class="invalid-feedback">{{ errors.telefono }}</div>
           }
 
           <!-- Ciudad -->
@@ -101,7 +101,7 @@
             <input [(ngModel)]="user.ciudad" type="text" matInput placeholder="Ingresa ciudad">
           </mat-form-field>
           @if (errors.ciudad) {
-          <div class="invalid-feedback">{{ errors.ciudad }}</div>
+            <div class="invalid-feedback">{{ errors.ciudad }}</div>
           }
 
           <!-- Edad -->
@@ -116,51 +116,67 @@
             </mat-select>
           </mat-form-field>
           @if (errors.edad) {
-          <div class="invalid-feedback">{{ errors.edad }}</div>
+            <div class="invalid-feedback">{{ errors.edad }}</div>
           }
 
           <!-- 3. CURP (tarea) -->
-            <mat-form-field class="inputs-login" appearance="outline">
-              <mat-label>CURP</mat-label>
-              <input [(ngModel)]="user.curp" type="text" matInput placeholder="Ingresa CURP">
-            </mat-form-field>
-            @if (errors.curp) {
-              <div class="invalid-feedback">{{ errors.curp }}</div>
-            }
+          <mat-form-field class="inputs-login" appearance="outline">
+            <mat-label>CURP</mat-label>
+            <input [(ngModel)]="user.curp" type="text" matInput placeholder="Ingresa CURP">
+          </mat-form-field>
+          @if (errors.curp) {
+            <div class="invalid-feedback">{{ errors.curp }}</div>
+          }
+
           <!-- 4. RFC (tarea) -->
-            <mat-form-field class="inputs-login" appearance="outline">
-              <mat-label>RFC</mat-label>
-              <input [(ngModel)]="user.rfc" type="text" matInput placeholder="Ingresa RFC">
-            </mat-form-field>
-            @if (errors.rfc) {
-              <div class="invalid-feedback">{{ errors.rfc }}</div>
-            }
+          <mat-form-field class="inputs-login" appearance="outline">
+            <mat-label>RFC</mat-label>
+            <input [(ngModel)]="user.rfc" type="text" matInput placeholder="Ingresa RFC">
+          </mat-form-field>
+          @if (errors.rfc) {
+            <div class="invalid-feedback">{{ errors.rfc }}</div>
+          }
+
           <!-- 5. Grado de estudios (tarea) -->
-            <mat-form-field appearance="outline" class="inputs-login">
-              <mat-label>Grado de estudios</mat-label>
+          <mat-form-field appearance="outline" class="inputs-login">
+            <mat-label>Grado de estudios</mat-label>
 
-              <mat-select [(ngModel)]="user.grado_estudios">
+            <mat-select [(ngModel)]="user.grado_estudios">
 
-                <mat-option value="">Seleccione una opción</mat-option>
-                <mat-option value="Preparatoria">Preparatoria</mat-option>
-                <mat-option value="Licenciatura">Licenciatura</mat-option>
-                <mat-option value="Maestría">Maestría</mat-option>
-                <mat-option value="Doctorado">Doctorado</mat-option>
+              <mat-option value="">Seleccione una opción</mat-option>
+              <mat-option value="Preparatoria">Preparatoria</mat-option>
+              <mat-option value="Licenciatura">Licenciatura</mat-option>
+              <mat-option value="Maestría">Maestría</mat-option>
+              <mat-option value="Doctorado">Doctorado</mat-option>
 
-              </mat-select>
-            </mat-form-field>
-            @if (errors.grado_estudios) {
-              <div class="invalid-feedback">{{ errors.grado_estudios }}</div>
-            }
+            </mat-select>
+          </mat-form-field>
+          @if (errors.grado_estudios) {
+            <div class="invalid-feedback">{{ errors.grado_estudios }}</div>
+          }
+
           <!-- 6. Dirección (tarea) -->
-            <mat-form-field appearance="outline" class="inputs-login">
-              <mat-label>Dirección</mat-label>
-              <input [(ngModel)]="user.direccion" matInput placeholder="Ingresa tu dirección">
+          <mat-form-field appearance="outline" class="inputs-login">
+            <mat-label>Dirección</mat-label>
+            <input [(ngModel)]="user.direccion" matInput placeholder="Ingresa tu dirección">
           </mat-form-field>
           @if (errors.direccion) {
-              <div class="invalid-feedback">{{ errors.direccion }}</div>
-            }
+            <div class="invalid-feedback">{{ errors.direccion }}</div>
+          }
+
           <!-- 7. Estado (tarea) -->
+          <mat-form-field appearance="outline" class="inputs-login">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="user.estado">
+              <mat-option value="">Seleccione una opción</mat-option>
+              @for (estado of estados; track estado.value) {
+                <mat-option [value]="estado.value">
+                  {{ estado.value }}
+                </mat-option>
+                }
+            </mat-select>
+          </mat-form-field>
+
           <!-- Términos -->
           <mat-checkbox class="example-margin" [(ngModel)]="user.terminos_condiciones">
             Acepto los
