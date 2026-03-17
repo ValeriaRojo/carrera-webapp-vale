@@ -135,8 +135,8 @@ export class UsuariosService {
 
     if (!user.id_usuario?.trim()) {
       errors.id_usuario = 'El ID de usuario es obligatorio.';
-    } else if (!/^[a-zA-Z0-9]{8}$/.test(user.id_usuario)) {
-      errors.id_usuario = 'El ID de usuario debe tener 8 caracteres (letras o números).';
+    } else if (!/^[a-zA-Z0-9]{9}$/.test(user.id_usuario)) {
+      errors.id_usuario = 'El ID de usuario debe tener 9 caracteres (letras o números).';
     }
 
     if (!user.curp?.trim()) {
